@@ -1,0 +1,35 @@
+<%= form_with(model: exam, local: true) do |form| %>
+  <% if exam.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(exam.errors.count, "error") %> prohibited this exam from being saved:</h2>
+
+      <ul>
+      <% exam.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :exam_title %>
+  </div>
+  <div class="field">
+    <%= form.label :banner_image_url %>
+    <%= form.url_field :banner_image_url %>
+  </div>
+  <div class="field">
+    <%= form.label :body %>
+    <%= form.text_area :body, id: :exam_body %>
+  </div>
+
+  <div class="field">
+    <%= form.label :desciption %>
+    <%= form.text_area :desciption, id: :exam_desciption %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

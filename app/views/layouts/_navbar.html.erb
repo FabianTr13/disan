@@ -1,0 +1,37 @@
+<div class="collapse" id="exCollapsingNavbar">
+  <div class="collapse-bg p-a-1">
+    <div class='card'>
+      <ul class="list-group list-group-flush">
+      <% if user_signed_in? %>        
+        <li class="list-group-item">
+          <%= link_to 'Inicio', exams_path, class: "nav-link #{yield(:about_active)}" %>
+        </li>
+        <li class="list-group-item">
+          <%= link_to 'Editar Perfil', edit_user_registration_path, class: "nav-link #{yield(:about_active)}" %>
+        </li>
+        <li class="list-group-item">
+          <%= link_to 'Salir', destroy_user_session_path, method: :delete, class: "nav-link #{yield(:contact_active)}" %>
+        </li>
+      <% else %>
+        <li class="list-group-item">
+          <%= link_to "Sign up", new_user_registration_path, class: "nav-link #{yield(:blog_active)}"  %> 
+        </li>
+        <li class="list-group-item">
+          <%= link_to "Login", new_user_session_path, class: "nav-link #{yield(:blog_active)}"  %> 
+        </li>        
+      <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<nav class="navbar navbar-light bg-faded">
+  <div class='container'>    
+    <button class="navbar-toggler hidden-sm-up pull-xs-right" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
+      &#9776;
+    </button>
+    <% if user_signed_in? %>
+      <strong><%= current_user.email %></strong>.
+    <% end %>
+  </div>
+</nav>
