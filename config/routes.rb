@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :churritos
   #get 'about' => 'pages#about', as: :about
   #get 'contact' => 'pages#contact', as: :contact
   #get 'contact' => 'pages#contact', as: :contact
